@@ -20,9 +20,18 @@
                 <span class="name mia">Mia</span>
             </h1>
             <p class="subtitle">Our Love Story • 8 Chapters</p>
+            <div class="frame-controls" aria-label="相框样式选择">
+                <span>相框样式：</span>
+                <button class="frame-btn active" data-style="gold">金色</button>
+                <button class="frame-btn" data-style="film">胶片</button>
+                <button class="frame-btn" data-style="matte">浮雕</button>
+            </div>
         </header>
 
-        <!-- 照片章节 - 左右交替 -->
+        <!-- 横向画廊：将章节作为卡片水平排列 -->
+        <div class="chapters-carousel">
+            <button class="carousel-btn prev" aria-label="上一章">‹</button>
+            <div class="chapters-track">
         <section class="chapter">
             <div class="photo-frame color-1">
                 <img src="images/photo1.jpg" alt="Memory 1">
@@ -110,6 +119,9 @@
                 <img src="images/photo8.jpg" alt="Memory 8">
             </div>
         </section>
+            </div>
+            <button class="carousel-btn next" aria-label="下一章">›</button>
+        </div>
 
         <!-- 终章 -->
         <footer class="outro">
