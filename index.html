@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gary & Mia - Love Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div id="particles"></div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题 -->
+        <header class="header">
+            <h1 class="title">
+                <span class="name gary">Gary</span>
+                <span class="heart-icon">💕</span>
+                <span class="name mia">Mia</span>
+            </h1>
+            <p class="subtitle">Our Love Story • 8 Chapters</p>
+        </header>
+
+        <!-- 照片章节 - 左右交替 -->
+        <section class="chapter">
+            <div class="photo-frame color-1">
+                <img src="images/photo1.jpg" alt="Memory 1">
+            </div>
+            <div class="content">
+                <span class="chapter-number">01</span>
+                <h2 class="love-quote">爱情就像龙卷风，嗖得一声就卷走了我的心</h2>
+                <p class="author">— Gary to Mia</p>
+            </div>
+        </section>
+
+        <section class="chapter reverse">
+            <div class="content">
+                <span class="chapter-number">02</span>
+                <h2 class="love-quote">遇见你的那天，星星都落在了我头上</h2>
+                <p class="author">— Mia to Gary</p>
+            </div>
+            <div class="photo-frame color-2">
+                <img src="images/photo2.jpg" alt="Memory 2">
+            </div>
+        </section>
+
+        <section class="chapter">
+            <div class="photo-frame color-3">
+                <img src="images/photo3.jpg" alt="Memory 3">
+            </div>
+            <div class="content">
+                <span class="chapter-number">03</span>
+                <h2 class="love-quote">你是我的今天，也是我所有的明天</h2>
+                <p class="author">— Gary & Mia</p>
+            </div>
+        </section>
+
+        <section class="chapter reverse">
+            <div class="content">
+                <span class="chapter-number">04</span>
+                <h2 class="love-quote">心动不是答案，心定才是</h2>
+                <p class="author">— Our Promise</p>
+            </div>
+            <div class="photo-frame color-4">
+                <img src="images/photo4.jpg" alt="Memory 4">
+            </div>
+        </section>
+
+        <section class="chapter">
+            <div class="photo-frame color-5">
+                <img src="images/photo5.jpg" alt="Memory 5">
+            </div>
+            <div class="content">
+                <span class="chapter-number">05</span>
+                <h2 class="love-quote">世界那么大，我的心很小，但里面全是你</h2>
+                <p class="author">— Gary's Heart</p>
+            </div>
+        </section>
+
+        <section class="chapter reverse">
+            <div class="content">
+                <span class="chapter-number">06</span>
+                <h2 class="love-quote">和你在一起的每一天，都是情人节</h2>
+                <p class="author">— Our Everyday</p>
+            </div>
+            <div class="photo-frame color-6">
+                <img src="images/photo6.jpg" alt="Memory 6">
+            </div>
+        </section>
+
+        <section class="chapter">
+            <div class="photo-frame color-7">
+                <img src="images/photo7.jpg" alt="Memory 7">
+            </div>
+            <div class="content">
+                <span class="chapter-number">07</span>
+                <h2 class="love-quote">你的笑容，是我生命中最美的风景</h2>
+                <p class="author">— Mia's Smile</p>
+            </div>
+        </section>
+
+        <section class="chapter reverse">
+            <div class="content">
+                <span class="chapter-number">08</span>
+                <h2 class="love-quote">你是我绕过山河错落，才找到的人间烟火</h2>
+                <p class="author">— Our Destiny</p>
+            </div>
+            <div class="photo-frame color-8">
+                <img src="images/photo8.jpg" alt="Memory 8">
+            </div>
+        </section>
+
+        <!-- 终章 -->
+        <footer class="outro">
+            <h2>To be continued...</h2>
+            <p>我们的故事，永远没有终章</p>
+            <span class="final-heart">💕</span>
+        </footer>
+    </div>
+
+    <!-- 音乐播放器 -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="https://github.com/GarySYJjie/GarySYJjie.github.io/raw/refs/heads/main/perfect.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
