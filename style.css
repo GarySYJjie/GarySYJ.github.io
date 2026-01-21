@@ -133,6 +133,38 @@ body {
     display: block;
 }
 
+/* 横向画廊：将章节作为卡片水平排列 */
+.chapters-carousel{display:flex;align-items:center;gap:12px;position:relative;margin-bottom:40px}
+.chapters-track{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 8px}
+.chapters-track::-webkit-scrollbar{height:10px}
+.chapters-track::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:8px}
+
+.chapter{scroll-snap-align:center;flex:0 0 900px;display:flex;align-items:center;gap:48px;padding:28px;border-radius:20px;position:relative;transition:transform 420ms cubic-bezier(.2,.9,.2,1),box-shadow 420ms;min-height:520px}
+.chapter.reverse{flex-direction:row-reverse}
+
+/* 遮罩：非活动项覆盖半透明白层但仍能隐约可见 */
+.chapter::after{content:"";position:absolute;inset:0;border-radius:20px;background:rgba(255,255,255,0.78);opacity:0.78;pointer-events:none;transition:opacity 320ms ease}
+.chapter.active::after{opacity:0}
+
+/* 当前活动项样式：更大、艺术框与投影 */
+.chapter:not(.active){transform:scale(0.92);filter:grayscale(4%)}
+.chapter.active{transform:scale(1.05);z-index:30;box-shadow:0 30px 80px rgba(22,24,27,0.35)}
+.chapter.active .photo-frame{max-width:720px;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,0.35), 0 0 0 12px rgba(255,255,255,0.92), 0 0 0 14px rgba(0,0,0,0.04)}
+.chapter.active .photo-frame img{border-radius:8px}
+
+/* 控制按钮 */
+.carousel-btn{background:rgba(255,255,255,0.95);border:0;border-radius:50%;width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.12);cursor:pointer}
+.carousel-btn:active{transform:scale(0.98)}
+
+/* 小屏幕调整：回退为纵向堆叠 */
+@media (max-width: 900px){
+    .chapters-track{overflow-x:auto;padding:12px}
+    .chapter{flex-direction:column;min-height:420px;flex:0 0 76vw;padding:18px;gap:18px}
+    .chapter .content{max-width:100%;padding:0}
+    .chapter::after{background:rgba(255,255,255,0.6)}
+    .chapter.active{transform:scale(1.02)}
+}
+
 /* 内容区域 */
 .content {
     flex: 1;
@@ -271,4 +303,33 @@ body {
     .chapter-number {
         margin-bottom: 15px;
     }
+}
+
+/* 相框样式选择 控件 */
+.frame-controls{display:inline-flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;color:#666}
+.frame-controls span{font-size:0.95rem;color:#888}
+.frame-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px 10px;border-radius:10px;cursor:pointer;font-weight:600}
+.frame-btn.active{background:#ffffff;border-color:rgba(0,0,0,0.08);box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+
+/* 金色相框（默认） */
+.photo-frame.frame-gold{border-radius:18px;overflow:visible;border:10px solid rgba(212,175,55,0.98);box-shadow:0 40px 80px rgba(0,0,0,0.35);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));}
+.photo-frame.frame-gold img{display:block;border-radius:6px}
+.photo-frame.frame-gold::before{content:"";position:absolute;inset:14px;border-radius:8px;pointer-events:none;box-shadow:inset 0 0 0 8px rgba(255,255,255,0.02)}
+
+/* 胶片风格：黑边与打洞效果 */
+.photo-frame.frame-film{background:#0b0b0b;padding:10px;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,0.45)}
+.photo-frame.frame-film img{border-radius:4px;display:block;filter:saturate(0.95) contrast(0.98)}
+.photo-frame.frame-film::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:10px;border-radius:4px;background:linear-gradient(#000,#222);box-shadow:inset 0 0 6px rgba(255,255,255,0.03)}
+.photo-frame.frame-film::after{content:"";position:absolute;right:6px;top:6px;bottom:6px;width:10px;border-radius:4px;background:linear-gradient(#000,#222);opacity:0.7}
+
+/* 浮雕 / 哑光相框 */
+.photo-frame.frame-matte{background:linear-gradient(180deg,#f6f6f6,#efefef);border-radius:16px;padding:12px;box-shadow:0 18px 40px rgba(16,18,20,0.08), inset 0 2px 8px rgba(255,255,255,0.6)}
+.photo-frame.frame-matte img{border-radius:6px;display:block}
+.photo-frame.frame-matte::before{content:"";position:absolute;inset:12px;border-radius:8px;box-shadow:inset 0 -10px 30px rgba(0,0,0,0.04)}
+
+/* 小屏幕下减弱遮罩以便阅读 */
+@media (max-width: 600px){
+    .chapter::after{background:rgba(255,255,255,0.55)}
+    .photo-frame.frame-gold{border-width:6px}
+    .photo-frame.frame-film{padding:6px}
 }
